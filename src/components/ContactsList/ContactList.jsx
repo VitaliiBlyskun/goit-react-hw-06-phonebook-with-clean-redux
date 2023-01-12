@@ -1,37 +1,46 @@
-import PropTypes from 'prop-types';
-import { Button, ContactContainer, Initial, List } from './ContactList.styled';
+import { DeleteContactButton } from "components/DeleteContact/DeleteContact";
+import { useSelector } from "react-redux";
+import { getContacts } from 'redux/selectors';
+import { Initial, List } from './ContactList.styled';
 
-const ContactList = ({ list, onDelete }) => {
+const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  console.log(contacts);
+
+
+
+
   return (
-  <ContactContainer>
+
     <List>
-        {list.map(item => <Initial key={item.id}>
-            <p>{item.name + ":"}</p>
-            <p>{item.number}</p>
-            <Button
-              type="button"
-              onClick={() => {
-                onDelete(item.id);
-              }}
-            >
-              Delete
-            </Button>
+        {contacts.map(contact => <Initial key={contact.id}>
+          <p>{contact.name + ":" + contact.number}</p>
+            {/* <p>{contact.name + ":"}</p>
+            <p>{contact.number}</p> */}
+          <DeleteContactButton contact={contact}/>
         </Initial>)}
     </List>
-  </ContactContainer>
+
   );
 };
 
 export default ContactList
 
 
-ContactList.propTypes = {
-  list: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onDelete: PropTypes.func.isRequired,
-};
+// ContactList.propTypes = {
+//   list: PropTypes.arrayOf(
+//     PropTypes.exact({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.string.isRequired,
+//     })
+//   ),
+//   onDelete: PropTypes.func.isRequired,
+// };
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
