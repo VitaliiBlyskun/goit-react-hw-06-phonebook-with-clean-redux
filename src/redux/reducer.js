@@ -35,6 +35,9 @@ import { combineReducers } from "redux";
   export const filtersReducer = (state = filtersInitialState, action) => {
     switch (action.type) {
       case "filters/contactFilter":
+
+        //! Не розумію як зробити фільтрування ???
+
         return { 
           // ...state,
           // contacts: state.contacts.filter(contact =>
