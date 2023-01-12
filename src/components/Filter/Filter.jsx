@@ -12,7 +12,6 @@ const Filter = () => {
   const handleChange = event => {
     // console.log(event.currentTarget.value);
       dispatch(contactFilter(event.currentTarget.value));
-      console.log(dispatch(contactFilter(event.currentTarget.value)));
   };
 
   return (

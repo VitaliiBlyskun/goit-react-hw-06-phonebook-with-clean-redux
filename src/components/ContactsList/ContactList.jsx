@@ -5,7 +5,7 @@ import { Initial, List } from './ContactList.styled';
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
-  console.log(contacts);
+  // console.log(contacts);
 
 
 
@@ -15,8 +15,6 @@ const ContactList = () => {
     <List>
         {contacts.map(contact => <Initial key={contact.id}>
           <p>{contact.name + ":" + contact.number}</p>
-            {/* <p>{contact.name + ":"}</p>
-            <p>{contact.number}</p> */}
           <DeleteContactButton contact={contact}/>
         </Initial>)}
     </List>

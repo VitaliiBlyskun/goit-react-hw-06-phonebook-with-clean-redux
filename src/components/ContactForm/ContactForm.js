@@ -11,17 +11,8 @@ const dispatch = useDispatch();
 const handleSubmit = event => {
   event.preventDefault();
     const form = event.target;
-    dispatch(addContact(form.elements.name.value));
-    dispatch(addContact(form.elements.number.value));
-
-    // dispatch(addContact(form.elements.name.value));
+    dispatch(addContact(form.elements.name.value, form.elements.number.value));
     // dispatch(addContact(form.elements.number.value));
-    // console.log(dispatch(addContact(form.elements.name.value)));
-    // console.log(dispatch(addContact(form.elements.number.value)));
-    
-    console.log(form.elements.name.value)
-    console.log(form.elements.number.value)
-
     form.reset()
 };
   
