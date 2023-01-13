@@ -2,20 +2,16 @@ import { addContact } from 'redux/actions';
 import { useDispatch } from 'react-redux';
 import { Button, Form, Label, Input } from './ContactForm.styled';
 
-
 const ContactForm = () => {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
-
- 
-const handleSubmit = event => {
-  event.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
     const form = event.target;
     dispatch(addContact(form.elements.name.value, form.elements.number.value));
-    // dispatch(addContact(form.elements.number.value));
-    form.reset()
-};
-  
+    form.reset();
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
@@ -38,15 +34,9 @@ const handleSubmit = event => {
           required
         />
       </Label>
-      <Button >
-        Add contact
-      </Button>
+      <Button type="submit">Add contact</Button>
     </Form>
   );
-}
+};
 
 export default ContactForm;
-
-// ContactForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
